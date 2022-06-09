@@ -1,5 +1,5 @@
 import { VStack, Text, Box } from "@chakra-ui/react";
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 
 const random = (items: string | any[]) =>
   items[Math.floor(Math.random() * items.length)];
