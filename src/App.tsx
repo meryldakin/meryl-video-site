@@ -19,7 +19,7 @@ export const App = () => (
     <Box textAlign="center" fontSize="xl">
       <Grid p={3}>
         <HStack p={3} justifyContent={"space-between"}>
-          <Text fontFamily={"Fascinate Inline"}>Meryl's Movies</Text>
+          <Text fontFamily={"Fredoka One"}>Meryl's Movies</Text>
           <ColorModeSwitcher justifySelf="flex-end" />
         </HStack>
         <VStack spacing={8} mt={2}>
@@ -27,78 +27,56 @@ export const App = () => (
             <VideoContainer
               title="Nancy Drew: The Secret of the Old Clock: Chapter 2"
               description="A Nancy Drew book rescued from a stoop comes alive during quarantine"
-              video={
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/KCq7qrHzQTY"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              }
+              video="https://www.youtube.com/embed/KCq7qrHzQTY"
             />
             <VideoContainer
               title="Things I Have Lost"
               description="Excerpts from an essay by Kaycie Hall"
-              video={
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/miPxh26NHmc"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              }
+              video="https://www.youtube.com/embed/miPxh26NHmc"
             />
           </HStack>
           <HStack>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/F7UZl_nfBso"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/10nN8IXQeC0"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <VideoContainer
+              title="Inside Quarantine 2020"
+              description="Shock. Denial. Anger. Bargaining. Depression. Madness. Denial."
+              video="https://www.youtube.com/embed/F7UZl_nfBso"
+            />
+            <VideoContainer
+              title="Sk8 Lunch"
+              description="A promo video for an elite club."
+              video="https://www.youtube.com/embed/10nN8IXQeC0"
+            />
           </HStack>
           <HStack>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/8CC91V0avDI"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/Ki7xysY4uz4"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <VideoContainer
+              title="Makeup tutorial"
+              description="Glam it up"
+              video="https://www.youtube.com/embed/8CC91V0avDI"
+            />
+            <VideoContainer
+              title="Crawfish Boil"
+              description="What's it like?"
+              video="https://www.youtube.com/embed/Ki7xysY4uz4"
+            />
           </HStack>
           <HStack>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/famPdZvt6bg"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <VideoContainer
+              title="Tasty"
+              description="Remember when Tasty videos were a thing?"
+              video="https://www.youtube.com/embed/Ki7xysY4uz4"
+            />
+          </HStack>
+          <HStack>
+            <VideoContainer
+              title="Batman: Episode 1"
+              description="Could there be an imposter among us?"
+              video="https://www.youtube.com/embed/jEP4DDwOPGM"
+            />
+            <VideoContainer
+              title="Batman: Episode 2"
+              description="Batman visits an old friend"
+              video="https://www.youtube.com/embed/yjoHXnqguxo"
+            />
           </HStack>
         </VStack>
       </Grid>
