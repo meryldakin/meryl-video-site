@@ -45,7 +45,6 @@ const fonts = [
   "Oswald",
   "Pacifico",
   "Permanent Marker",
-  "Press Start 2P",
   "Righteous",
   "Sacramento",
   "Shadows Into Light",
@@ -58,9 +57,6 @@ export type Video = {
   src: string;
   id: number;
 };
-
-const firstColor = random(colors);
-const secondColor = random(colors);
 
 type Props = {
   selectedVideo: Video | null;
@@ -77,6 +73,8 @@ const VideoContainer: React.FC<Props> = ({
   const flipVideo = (video: Video | null) => {
     setSelectedVideo(video);
   };
+  const firstColor = random(colors);
+  const secondColor = random(colors);
   const shouldShowVideo = isLargerThan480 ? showVideo : selectedVideo === video;
 
   return (
@@ -86,7 +84,10 @@ const VideoContainer: React.FC<Props> = ({
         boxShadow="lg"
         width={["250px", "560px"]}
         height={["255px", "315px"]}
-        bgGradient={firstColor}
+        borderWidth={4}
+        borderStyle="groove"
+        borderColor={secondColor}
+        // bgGradient={`conic(from 90deg, ${firstColor}, ${secondColor}, ${firstColor})`}
         backgroundColor={random(colors)}
         onMouseEnter={() => isLargerThan480 && setShowVideo(true)}
         onMouseLeave={() => isLargerThan480 && setShowVideo(false)}
