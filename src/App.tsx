@@ -6,77 +6,61 @@ import {
   Grid,
   theme,
   HStack,
+  useMediaQuery,
+  Button,
 } from "@chakra-ui/react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import VideoContainer, { Video } from "./VideoContainer";
+import { videos } from "./data";
 
-import VideoContainer from "./VideoContainer";
+import VideoGrid from "./VideoGrid";
+import { FaBackspace, FaBackward } from "react-icons/fa";
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid p={3}>
-        <HStack p={3} justifyContent={"space-between"}>
-          <Text fontFamily={"Fredoka One"}>Meryl's Movies</Text>
-          <ColorModeSwitcher justifySelf="flex-end" />
-        </HStack>
-        <VStack spacing={8} mt={2}>
-          <HStack>
-            <VideoContainer
-              title="Nancy Drew: The Secret of the Old Clock: Chapter 2"
-              description="A Nancy Drew book rescued from a stoop comes alive during quarantine"
-              video="https://www.youtube.com/embed/KCq7qrHzQTY"
-            />
-            <VideoContainer
-              title="Things I Have Lost"
-              description="Excerpts from an essay by Kaycie Hall"
-              video="https://www.youtube.com/embed/miPxh26NHmc"
-            />
+export const App = () => {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  console.log("selected video", selectedVideo);
+  const [isLargerThan480] = useMediaQuery("(min-width: 480px)");
+  const showGrid = isLargerThan480 || (!isLargerThan480 && !selectedVideo);
+  return (
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl">
+        <Grid p={3}>
+          <HStack p={3} justifyContent={"space-between"}>
+            <Text fontFamily={"Fredoka One"}>Meryl's Movies</Text>
+            <ColorModeSwitcher justifySelf="flex-end" />
           </HStack>
-          <HStack>
-            <VideoContainer
-              title="Inside Quarantine 2020"
-              description="Shock. Denial. Anger. Bargaining. Depression. Madness. Denial."
-              video="https://www.youtube.com/embed/F7UZl_nfBso"
+          {showGrid ? (
+            <VideoGrid
+              videos={videos}
+              selectedVideo={selectedVideo}
+              setSelectedVideo={
+                setSelectedVideo as Dispatch<SetStateAction<Video | null>>
+              }
             />
-            <VideoContainer
-              title="Sk8 Lunch"
-              description="A promo video for an elite club."
-              video="https://www.youtube.com/embed/10nN8IXQeC0"
-            />
-          </HStack>
-          <HStack>
-            <VideoContainer
-              title="Makeup tutorial"
-              description="Glam it up"
-              video="https://www.youtube.com/embed/8CC91V0avDI"
-            />
-            <VideoContainer
-              title="Crawfish Boil"
-              description="What's it like?"
-              video="https://www.youtube.com/embed/Ki7xysY4uz4"
-            />
-          </HStack>
-          <HStack>
-            <VideoContainer
-              title="Tasty"
-              description="Remember when Tasty videos were a thing?"
-              video="https://www.youtube.com/embed/Ki7xysY4uz4"
-            />
-          </HStack>
-          <HStack>
-            <VideoContainer
-              title="Batman: Episode 1"
-              description="Could there be an imposter among us?"
-              video="https://www.youtube.com/embed/jEP4DDwOPGM"
-            />
-            <VideoContainer
-              title="Batman: Episode 2"
-              description="Batman visits an old friend"
-              video="https://www.youtube.com/embed/yjoHXnqguxo"
-            />
-          </HStack>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-);
+          ) : (
+            <>
+              <Button
+                onClick={() => setSelectedVideo(null)}
+                mt={"50px"}
+                mb={"50px"}
+                variant="outline"
+                color={'orange'}
+                leftIcon={<FaBackward/>}
+              >
+                Back to all videos
+              </Button>
+              <VideoContainer
+                video={selectedVideo}
+                selectedVideo={selectedVideo}
+                setSelectedVideo={
+                  setSelectedVideo as Dispatch<SetStateAction<Video | null>>
+                }
+              />
+            </>
+          )}
+        </Grid>
+      </Box>
+    </ChakraProvider>
+  );
+};

@@ -1,5 +1,5 @@
-import { VStack, Text, Box } from "@chakra-ui/react";
-import { useState } from "react";
+import { VStack, Text, Box, useMediaQuery } from "@chakra-ui/react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 const random = (items: string | any[]) =>
   items[Math.floor(Math.random() * items.length)];
@@ -24,7 +24,7 @@ const colors = [
   "#FFF0F5",
   "#B0C4DE",
   "#FFE4E1",
-  "#90EE90"
+  "#90EE90",
 ];
 
 const fonts = [
@@ -52,33 +52,57 @@ const fonts = [
   "Special Elite",
 ];
 
-type Props = {
+export type Video = {
   title: string;
   description: string;
-  video: string;
+  src: string;
+  id: number;
 };
-const VideoContainer: React.FC<Props> = ({ title, description, video }) => {
+
+const firstColor = random(colors);
+const secondColor = random(colors);
+
+type Props = {
+  selectedVideo: Video | null;
+  setSelectedVideo: Dispatch<SetStateAction<null | Video>>;
+  video: Video | null;
+};
+const VideoContainer: React.FC<Props> = ({
+  video,
+  selectedVideo,
+  setSelectedVideo,
+}) => {
+  const [isLargerThan480] = useMediaQuery("(min-width: 480px)");
   const [showVideo, setShowVideo] = useState(false);
+  const flipVideo = (video: Video | null) => {
+    setSelectedVideo(video);
+  };
+  const shouldShowVideo = isLargerThan480 ? showVideo : selectedVideo === video;
 
   return (
     <VStack p={3}>
       <Box
         borderRadius="8px"
-        width="560px"
-        height="315px"
+        boxShadow="lg"
+        width={["250px", "560px"]}
+        height={["255px", "315px"]}
+        bgGradient={firstColor}
         backgroundColor={random(colors)}
-        onMouseEnter={() => setShowVideo(true)}
-        onMouseLeave={() => setShowVideo(false)}
+        onMouseEnter={() => isLargerThan480 && setShowVideo(true)}
+        onMouseLeave={() => isLargerThan480 && setShowVideo(false)}
+        onClick={() => flipVideo(video)}
       >
-        {showVideo ? (
-          <iframe
-            width="560"
-            height="315"
-            src={video}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+        {shouldShowVideo ? (
+          <Box borderRadius={8} width="100%" height="100%">
+            <iframe
+              width="100%"
+              height="100%"
+              src={video?.src}
+              title={video?.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </Box>
         ) : (
           <VStack
             alignItems="center"
@@ -87,11 +111,19 @@ const VideoContainer: React.FC<Props> = ({ title, description, video }) => {
             height="100%"
             p={3}
           >
-            <Text fontFamily={random(fonts)} fontSize={"26px"} color="black">
-              {title}
+            <Text
+              fontFamily={random(fonts)}
+              fontSize={["18px", "26px"]}
+              color="black"
+            >
+              {video?.title}
             </Text>
-            <Text fontFamily={random(fonts)} fontSize={"16px"} color="black">
-              {description}
+            <Text
+              fontFamily={random(fonts)}
+              fontSize={["14px", "16px"]}
+              color="black"
+            >
+              {video?.description}
             </Text>
           </VStack>
         )}
