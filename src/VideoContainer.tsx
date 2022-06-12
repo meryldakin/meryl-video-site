@@ -87,8 +87,7 @@ const VideoContainer: React.FC<Props> = ({
         borderWidth={4}
         borderStyle="groove"
         borderColor={secondColor}
-        // bgGradient={`conic(from 90deg, ${firstColor}, ${secondColor}, ${firstColor})`}
-        backgroundColor={random(colors)}
+        backgroundColor={firstColor}
         onMouseEnter={() => isLargerThan480 && setShowVideo(true)}
         onMouseLeave={() => isLargerThan480 && setShowVideo(false)}
         onClick={() => flipVideo(video)}

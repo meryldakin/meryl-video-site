@@ -2,7 +2,6 @@ import {
   ChakraProvider,
   Box,
   Text,
-  VStack,
   Grid,
   theme,
   HStack,
@@ -15,7 +14,7 @@ import VideoContainer, { Video } from "./VideoContainer";
 import { videos } from "./data";
 
 import VideoGrid from "./VideoGrid";
-import { FaBackspace, FaBackward } from "react-icons/fa";
+import { FaBackward } from "react-icons/fa";
 
 export const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -45,8 +44,8 @@ export const App = () => {
                 mt={"50px"}
                 mb={"50px"}
                 variant="outline"
-                color={'orange'}
-                leftIcon={<FaBackward/>}
+                color={"orange"}
+                leftIcon={<FaBackward />}
               >
                 Back to all videos
               </Button>

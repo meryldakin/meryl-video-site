@@ -1,11 +1,4 @@
-import {
-  Box,
-  Container,
-  Flex,
-  HStack,
-  useMediaQuery,
-  VStack,
-} from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
 
 import VideoContainer, { Video } from "./VideoContainer";
