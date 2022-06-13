@@ -7,11 +7,14 @@ import {
   HStack,
   useMediaQuery,
   Button,
+  Icon,
+  Image,
 } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import VideoContainer, { Video } from "./VideoContainer";
 import { videos } from "./data";
+import logo from "./logo.png";
 
 import VideoGrid from "./VideoGrid";
 import { FaBackward } from "react-icons/fa";
@@ -26,7 +29,10 @@ export const App = () => {
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
           <HStack p={3} justifyContent={"space-between"}>
-            <Text fontFamily={"Fredoka One"}>Meryl's Movies</Text>
+            <HStack>
+              <Image src={logo} alt="logo" width={"50px"} />
+              <Text fontFamily={"Fredoka One"}>Meryl's Movies</Text>{" "}
+            </HStack>
             <ColorModeSwitcher justifySelf="flex-end" />
           </HStack>
           {showGrid ? (
