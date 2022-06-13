@@ -7,7 +7,6 @@ import {
   HStack,
   useMediaQuery,
   Button,
-  Icon,
   Image,
 } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
