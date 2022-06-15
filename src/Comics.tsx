@@ -4,7 +4,7 @@ import { comics } from "./data";
 
 const Comics = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" flexWrap={"wrap"}>
       {comics.map((comic) => (
         <Comic comic={comic} />
       ))}
