@@ -1,4 +1,4 @@
-import { VStack, Text, Box, useMediaQuery } from "@chakra-ui/react";
+import { VStack, Text, Box, useMediaQuery, Divider } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
 
 const random = (items: string | any[]) =>
@@ -27,30 +27,6 @@ const colors = [
   "#90EE90",
 ];
 
-const fonts = [
-  "Abril Fatface",
-  "Alfa Slab One",
-  "Bangers",
-  "Bebas Neue",
-  "Blaka",
-  "Caveat",
-  "Cinzel",
-  "Dancing Script",
-  "Great Vibes",
-  "Indie Flower",
-  "Fredoka One",
-  "Josefin Sans",
-  "Marcellus",
-  "Lobster",
-  "Oswald",
-  "Pacifico",
-  "Permanent Marker",
-  "Righteous",
-  "Sacramento",
-  "Shadows Into Light",
-  "Special Elite",
-];
-
 export type Video = {
   title: string;
   description: string;
@@ -74,7 +50,6 @@ const VideoContainer: React.FC<Props> = ({
     setSelectedVideo(video);
   };
   const firstColor = random(colors);
-  const secondColor = random(colors);
   const shouldShowVideo = isLargerThan480 ? showVideo : selectedVideo === video;
 
   return (
@@ -85,9 +60,10 @@ const VideoContainer: React.FC<Props> = ({
         width={["250px", "560px"]}
         height={["255px", "315px"]}
         borderWidth={4}
-        borderStyle="groove"
-        borderColor={secondColor}
-        backgroundColor={firstColor}
+        // borderStyle="groove"
+        borderColor={"white"}
+        // backgroundColor={firstColor}
+        bgGradient={`linear(white 5%, ${firstColor})`}
         onMouseEnter={() => isLargerThan480 && setShowVideo(true)}
         onMouseLeave={() => isLargerThan480 && setShowVideo(false)}
         onClick={() => flipVideo(video)}
@@ -110,16 +86,19 @@ const VideoContainer: React.FC<Props> = ({
             width="100%"
             height="100%"
             p={3}
+            spacing={5}
           >
             <Text
-              fontFamily={random(fonts)}
+              fontFamily={"Major Mono Display"}
               fontSize={["18px", "26px"]}
               color="black"
             >
               {video?.title}
             </Text>
+            <Divider width={"50px"} variant="solid" />
             <Text
-              fontFamily={random(fonts)}
+              fontFamily={"Zen Old Mincho"}
+              fontWeight="bold"
               fontSize={["14px", "16px"]}
               color="black"
             >

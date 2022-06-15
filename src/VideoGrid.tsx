@@ -19,6 +19,7 @@ const VideoGrid: React.FC<Props> = ({
       <Flex mt={2} flexWrap="wrap" justifyContent={"center"}>
         {videos.map((video) => (
           <VideoContainer
+            key={video.id}
             video={video}
             setSelectedVideo={setSelectedVideo}
             selectedVideo={selectedVideo}
