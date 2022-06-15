@@ -1,9 +1,13 @@
+import figs from "./assets/i-hate-figs.png";
+import doing from "./assets/what-was-i-doing.png";
+import insecure from "./assets/insecure-app.png";
+
 const videos = [
   {
     title: "Nancy Drew: the secret of the old clock: chapter 2",
-    description:
-      "A faithful adaptation of Carolyn Keene's great work",
+    description: "A faithful adaptation of Carolyn Keene's seminal work",
     src: "https://www.youtube-nocookie.com/embed/KCq7qrHzQTY",
+
     id: 1,
   },
 
@@ -64,4 +68,25 @@ const videos = [
   },
 ];
 
-export { videos };
+const comics = [
+  {
+    id: 1,
+    url: "https://medium.com/@meryldakin/nine-ways-of-looking-at-a-fig-tree-7ede7bce9d66",
+    image: figs,
+    name: "Nine ways of looking at a fig tree"
+  },
+  {
+    id: 2,
+    url: "https://medium.com/@meryldakin/what-was-i-supposed-to-be-doing-again-d0577a6f2c25",
+    image: doing,
+    name: "A day in the life of a programmer"
+  },
+  {
+    id: 3,
+    url: "https://medium.com/@meryldakin/unsecure-insecure-c4d45c849939",
+    image: insecure,
+    name: "App security"
+  },
+];
+
+export { videos, comics };

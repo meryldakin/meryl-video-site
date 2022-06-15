@@ -1,31 +1,6 @@
 import { VStack, Text, Box, useMediaQuery, Divider } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useState } from "react";
-
-const random = (items: string | any[]) =>
-  items[Math.floor(Math.random() * items.length)];
-
-const colors = [
-  "#7FFFD4",
-  "#FFE4C4",
-  "#FF7F50",
-  "#6495ED",
-  "#8FBC8F",
-  "#483D8B",
-  "#00BFFF",
-  "#CD5C5C",
-  "#E6E6FA",
-  "#DB7093",
-  "#B0E0E6",
-  "#D8BFDB",
-  "#EEE8AA",
-  "#66CDAA",
-  "#E0FFFF",
-  "#FFFACD",
-  "#FFF0F5",
-  "#B0C4DE",
-  "#FFE4E1",
-  "#90EE90",
-];
 
 export type Video = {
   title: string;
@@ -49,27 +24,27 @@ const VideoContainer: React.FC<Props> = ({
   const flipVideo = (video: Video | null) => {
     setSelectedVideo(video);
   };
-  const firstColor = random(colors);
+
   const shouldShowVideo = isLargerThan480 ? showVideo : selectedVideo === video;
 
   return (
     <VStack p={3}>
       <Box
         borderRadius="8px"
+        borderWidth={0.5}
         boxShadow="lg"
         width={["250px", "560px"]}
         height={["255px", "315px"]}
-        borderWidth={4}
-        // borderStyle="groove"
-        borderColor={"white"}
-        // backgroundColor={firstColor}
-        bgGradient={`linear(white 5%, ${firstColor})`}
         onMouseEnter={() => isLargerThan480 && setShowVideo(true)}
         onMouseLeave={() => isLargerThan480 && setShowVideo(false)}
-        onClick={() => flipVideo(video)}
+        onClick={() => !isLargerThan480 && flipVideo(video)}
       >
         {shouldShowVideo ? (
-          <Box borderRadius={8} width="100%" height="100%">
+          <Box
+            borderRadius={8}
+            width={["250px", "560px"]}
+            height={["255px", "315px"]}
+          >
             <iframe
               width="100%"
               height="100%"
@@ -80,31 +55,31 @@ const VideoContainer: React.FC<Props> = ({
             ></iframe>
           </Box>
         ) : (
-          <VStack
-            alignItems="center"
-            justifyContent="center"
-            width="100%"
-            height="100%"
-            p={3}
-            spacing={5}
-          >
-            <Text
-              fontFamily={"Major Mono Display"}
-              fontSize={["18px", "26px"]}
-              color="black"
+          <>
+            <VStack
+              alignItems="center"
+              justifyContent="center"
+              width="100%"
+              height="100%"
+              p={3}
+              spacing={5}
             >
-              {video?.title}
-            </Text>
-            <Divider width={"50px"} variant="solid" />
-            <Text
-              fontFamily={"Zen Old Mincho"}
-              fontWeight="bold"
-              fontSize={["14px", "16px"]}
-              color="black"
-            >
-              {video?.description}
-            </Text>
-          </VStack>
+              <Text
+                fontFamily={"Major Mono Display"}
+                fontSize={["18px", "26px"]}
+              >
+                {video?.title}
+              </Text>
+              <Divider width={"50px"} variant="solid" />
+              <Text
+                fontFamily={"Zen Old Mincho"}
+                fontWeight="bold"
+                fontSize={["14px", "16px"]}
+              >
+                {video?.description}
+              </Text>
+            </VStack>
+          </>
         )}
       </Box>
     </VStack>

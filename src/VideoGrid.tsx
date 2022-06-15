@@ -16,7 +16,7 @@ const VideoGrid: React.FC<Props> = ({
 }) => {
   return (
     <Container maxWidth={["1300px"]}>
-      <Flex mt={2} flexWrap="wrap" justifyContent={"center"}>
+      <Flex mt={2} flexWrap="wrap" justifyContent="center">
         {videos.map((video) => (
           <VideoContainer
             key={video.id}
