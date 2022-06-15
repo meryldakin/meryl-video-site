@@ -26,45 +26,52 @@ const videos = [
   },
 
   {
+    title: "BoYs",
+    description: "An interview with June Dakin",
+    src: "https://www.youtube-nocookie.com/embed/rguCHAtiERs",
+    id: 4,
+  },
+
+  {
     title: "Sk8 Lunch",
     description: "A promo video for an elite club",
     src: "https://www.youtube-nocookie.com/embed/10nN8IXQeC0",
-    id: 4,
+    id: 5,
   },
 
   {
     title: "Makeup tutorial",
     description: "Maybe she's an influencer",
     src: "https://www.youtube-nocookie.com/embed/8CC91V0avDI",
-    id: 5,
+    id: 6,
   },
 
   {
     title: "Crawfish Boil",
     description: "Just a video of my family at a crawfish boil",
     src: "https://www.youtube-nocookie.com/embed/Ki7xysY4uz4",
-    id: 6,
+    id: 7,
   },
 
   {
     title: "Tasty",
     description: "It's a parody",
     src: "https://www.youtube-nocookie.com/embed/famPdZvt6bg",
-    id: 7,
+    id: 8,
   },
 
   {
     title: "Batman: Episode 1",
     description: "A stop-motion about a hero calling himself Batman in France",
     src: "https://www.youtube-nocookie.com/embed/jEP4DDwOPGM",
-    id: 8,
+    id: 9,
   },
 
   {
     title: "Batman: Episode 2",
     description: "The second installment of this cancelled series",
     src: "https://www.youtube-nocookie.com/embed/yjoHXnqguxo",
-    id: 9,
+    id: 10,
   },
 ];
 
@@ -73,19 +80,19 @@ const comics = [
     id: 1,
     url: "https://medium.com/@meryldakin/nine-ways-of-looking-at-a-fig-tree-7ede7bce9d66",
     image: figs,
-    name: "Nine ways of looking at a fig tree"
+    name: "Nine ways of looking at a fig tree",
   },
   {
     id: 2,
     url: "https://medium.com/@meryldakin/what-was-i-supposed-to-be-doing-again-d0577a6f2c25",
     image: doing,
-    name: "A day in the life of a programmer"
+    name: "A day in the life of a programmer",
   },
   {
     id: 3,
     url: "https://medium.com/@meryldakin/unsecure-insecure-c4d45c849939",
     image: insecure,
-    name: "App security"
+    name: "App security",
   },
 ];
 

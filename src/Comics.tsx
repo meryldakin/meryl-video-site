@@ -6,7 +6,7 @@ const Comics = () => {
   return (
     <Flex justifyContent="center" flexWrap={"wrap"}>
       {comics.map((comic) => (
-        <Comic comic={comic} />
+        <Comic comic={comic} key={comic.id} />
       ))}
     </Flex>
   );
