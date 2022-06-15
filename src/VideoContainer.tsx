@@ -1,5 +1,4 @@
 import { VStack, Text, Box, useMediaQuery, Divider } from "@chakra-ui/react";
-import { AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useState } from "react";
 
 export type Video = {

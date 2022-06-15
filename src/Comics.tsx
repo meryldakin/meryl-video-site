@@ -1,4 +1,4 @@
-import { Flex, Link, Image } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Comic from "./Comic";
 import { comics } from "./data";
 

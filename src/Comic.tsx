@@ -1,12 +1,4 @@
-import {
-  Text,
-  Link,
-  Image,
-  Center,
-  VStack,
-  Flex,
-  Divider,
-} from "@chakra-ui/react";
+import { Text, Link, Image, VStack, Divider } from "@chakra-ui/react";
 type ComicType = {
   url: string;
   image: any;

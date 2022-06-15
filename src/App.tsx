@@ -23,7 +23,6 @@ import VideoGrid from "./VideoGrid";
 import { FaBackward } from "react-icons/fa";
 import Comics from "./Comics";
 import About from "./About";
-import { AnimatePresence, motion } from "framer-motion";
 
 export const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
